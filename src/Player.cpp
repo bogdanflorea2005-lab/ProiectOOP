@@ -54,14 +54,14 @@ bool Player::getDead() {
 void Player::move() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)==1 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)==0) {
         velocity.x += 0.25;
-        if (velocity.x>=5) {
-            velocity.x = 5;
+        if (velocity.x>=6) {
+            velocity.x = 6;
         }
         position.x+=velocity.x;
     }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)==1 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)==0) {
         velocity.x -= 0.25;
-        if (velocity.x<=-5) {
-            velocity.x = -5;
+        if (velocity.x<=-6) {
+            velocity.x = -6;
         }
         position.x+=velocity.x;
     }else{
@@ -72,19 +72,16 @@ void Player::move() {
         position.x+=velocity.x;
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)==0 && pressedSpace==true) {
-        pressedSpace=false;
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)==1 && pressedSpace==false && isGrounded==true) {
-        pressedSpace = true;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)==1 && isGrounded==true) {
         isGrounded = false;
-        velocity.y -=25;
+        velocity.y=0;
+        velocity.y -=15;
+        position.y+=velocity.y;
     }
 
-    velocity.y+=1;
-    if (velocity.y==6) {
-        velocity.y = 6;
+    velocity.y+=0.25;
+    if (velocity.y>=5) {
+        velocity.y = 5;
     }
     position.y+=velocity.y;
 }

@@ -35,21 +35,21 @@ void Enemy::seekPlayer(Player& p) {
     float distance=abs(p.getPosition().x-position.x);
     if (position.x<p.getPosition().x && distance>30) {
         velocity.x+=0.25;
-        if (velocity.x>=6) {
-            velocity.x=6;
+        if (velocity.x>=4) {
+            velocity.x=4;
         }
         position.x+=velocity.x;
     }
     else
         if (position.x>p.getPosition().x && distance>30) {
             velocity.x-=0.25;
-            if (velocity.x>=-6) {
-                velocity.x=-6;
+            if (velocity.x<=-4) {
+                velocity.x=-4;
             }
             position.x+=velocity.x;
         }
 
-    if (abs(p.getPosition().x-position.x)<40) {
+    if (abs(p.getPosition().x-position.x)<40 && abs(p.getPosition().y-position.y)<40) {
         p.setDead(true);
     }
 

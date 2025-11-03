@@ -26,14 +26,14 @@ int main()
     std::string enemyPath = "Textures/placeholderEnemy.png";
     std::string lBozo="Textures/Lbozo.png";
 
-    Player p(filePath1, 650, 300);
+    Player p(filePath1, 500, 300);
     std::cout<<p;
     Tile tile(tilePath, 300, 200);
     Tile tile2(tilePath, 1100, 150);
     Tile tile3(tilePath2, 450, 650);
     Tile tile4(tile3, 450 + 555, 650);
     Tile tile5(tile4, 450+555+555, 650);
-    Enemy e(enemyPath, 700, 300);
+    Enemy e(enemyPath, 1200, 300);
 
     while (window.isOpen())
     {
